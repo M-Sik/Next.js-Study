@@ -8,7 +8,6 @@ export type Product = {
 }
 
 export const getProducts = async (): Promise<Product[]> => {
-  for (let i = 0; i < 10000000; i++) { };
   const filePath = path.join(process.cwd(), 'data', 'products.json');
   const data = await fs.readFile(filePath, 'utf-8');
 

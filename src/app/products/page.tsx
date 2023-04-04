@@ -1,7 +1,9 @@
 import { getProducts } from '@/apis/products'
 import MeowArticle from '@/components/MeowArticle';
+import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react'
+import styles from './page.module.scss';
 
 // ISR 방식 3초마다 새로운 데이터로 렌더링
 // export const revalidate = 3;
@@ -23,6 +25,9 @@ export default async function ProductsPage() {
   return (
     <>
       <h1>제품 소개 페이지!</h1>
+      <div className={styles.gridElement}>
+        <Image fill={true} src="https://images.unsplash.com/photo-1441986300917-64674bd600d8" alt='closeImg' />
+      </div>
       <ul>
         {products.map((product, index) => {
           return <li key={index}><Link href={`/products/${product.id}`}>{ product.name }</Link></li>
