@@ -7,6 +7,9 @@ import React from 'react'
 // export const revalidate = 3;
 
 export default async function ProductsPage() {
+  // error.tsx를 확인하기 위해 일부로 error 발생
+  // throw new Error();
+
   // 서버 파일(데이터 베이스)에 있는 제품의 리스트를 읽어와서, 그걸 보여줌
   const products = await getProducts();
   // // revalidate 혹은 chche를 통한 다른 설정을 하지 않는다면 ssg가 됨
