@@ -1,7 +1,8 @@
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import React from 'react'
 import Link from 'next/link';
 import { getProduct, getProducts } from '@/apis/products';
+import RedirectBtn from '@/components/RedirectBtn';
 
 // ISR 방식 3초마다 새로운 데이터로 렌더링
 export const revalidate = 3;
@@ -27,12 +28,14 @@ export default async function ProductPage({ params: {slug} }: Props) {
   const product = await getProduct(slug);
   // 만약 찾는 제품이 없으면 notFound
   if (!product) {
-    notFound()
+    redirect("/products")
+    // notFound()
   }
 
   return (
     <>
       <h1>{product.name}제품 페이지</h1>
+      <RedirectBtn />
     </>
   )
 }
