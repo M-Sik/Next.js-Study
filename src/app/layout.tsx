@@ -1,6 +1,15 @@
 // import './globals.css'
 import Link from 'next/link';
 import styles from './layout.module.css';
+import { Metadata } from 'next';
+
+// seo 관련 설정 기존에는 header.tsx에 적용하였으나 next 버전 업그레이드로 인해
+// metadata 객체 사용
+export const metadata: Metadata = {
+  title: '멋진 제품 사이트',
+  description: '멋진 제품을 판매하는 곳입니다.',
+  icons: '/favicon.ico'
+}
 
 export default function RootLayout({
   children,

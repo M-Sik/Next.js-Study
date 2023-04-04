@@ -10,6 +10,14 @@ type Props = {
   }
 }
 
+// 다이나믹한 메타데이터
+// slug에 따라 메타데이터를 바꾸고 싶을때에는 generateMetadata 사용
+export function generateMetadata({ params }: Props) {
+  return {
+    title: `제품의 이름: ${params.slug}`
+  }
+}
+
 export default function SlugPage({ params }: Props) {
   if (params.slug === 'nothing') notFound();
   return (
