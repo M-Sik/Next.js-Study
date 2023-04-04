@@ -2,6 +2,14 @@
 import Link from 'next/link';
 import styles from './layout.module.css';
 import { Metadata } from 'next';
+import { Open_Sans } from '@next/font/google';
+import { Nanum_Gothic } from '@next/font/google';
+
+const sans = Open_Sans({ subsets: ['latin'] })
+const gothic = Nanum_Gothic({
+  weight: '700',
+  subsets: ['latin']
+})
 
 // seo 관련 설정 기존에는 header.tsx에 적용하였으나 next 버전 업그레이드로 인해
 // metadata 객체 사용
@@ -17,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={sans.className}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -25,7 +33,7 @@ export default function RootLayout({
       <head />
       <body>
         <header className={styles.header}>
-          <h1>Demo Note</h1>
+          <h1 className={gothic.className}>Demo Note</h1>
           <nav className={styles.nav}>
             <Link href="/products">Products</Link>
             <Link href="/about">About</Link>
