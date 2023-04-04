@@ -1,4 +1,5 @@
 import {notFound} from "next/navigation"
-export default function NotFound() {
+import { ReactNode } from "react"
+export default function NotFound(): ReactNode | Promise<ReactNode> {
   notFound()
 }
